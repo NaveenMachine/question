@@ -50,6 +50,53 @@ button {
   cursor: pointer;
 }
 
+/* Scattered sticker look: tilted, slightly overlapping cutouts */
+.collage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 52rem;
+  margin-top: 1rem;
+}
+
+.collage img {
+  height: clamp(4.5rem, 18vw, 8rem);
+  width: auto;
+  max-width: 40vw;
+  object-fit: contain;
+  margin: -0.25rem;
+  filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.25));
+  transition: transform 0.2s;
+}
+
+.collage img:nth-child(5n + 1) {
+  rotate: -8deg;
+}
+
+.collage img:nth-child(5n + 2) {
+  rotate: 6deg;
+  translate: 0 0.75rem;
+}
+
+.collage img:nth-child(5n + 3) {
+  rotate: -3deg;
+}
+
+.collage img:nth-child(5n + 4) {
+  rotate: 10deg;
+  translate: 0 -0.5rem;
+}
+
+.collage img:nth-child(5n) {
+  rotate: -5deg;
+  translate: 0 0.5rem;
+}
+
+.collage img:hover {
+  transform: scale(1.1);
+}
+
 .prompt {
   position: relative;
   display: flex;

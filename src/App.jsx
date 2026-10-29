@@ -8,7 +8,10 @@ const bouquets = Array.from({ length: 30 }, () => ({
   delay: -Math.random() * 12,
 }))
 // re build
-const fireworkEmojis = ['🥰', '🐶', '🚀', '🔥']
+// Files in public/images; add new ones here too
+const collageImages = ['dog.png', 'chocolate.png', 'dimoo.png', 'minon.jpg', 'cheese.png']
+
+const fireworkEmojis =['🥰', '🐶', '🚀', '🔥']
 const FIREWORKS_MS = 30000
 const PARTICLES_PER_BURST = 20
 
@@ -110,6 +113,15 @@ function App() {
         <div className="answers">
           <button onClick={handleNo}>too soon🫪</button>
           <button onClick={handleYes}>yes🚀</button>
+        </div>
+        <div className="collage">
+          {collageImages.map((file) => (
+            <img
+              key={file}
+              src={`${import.meta.env.BASE_URL}images/${file}`}
+              alt=""
+            />
+          ))}
         </div>
       </div>
     </main>
