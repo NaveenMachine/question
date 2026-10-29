@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #fff;
+}
+
+main {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  max-width: 20ch;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+/* Translucent white fades any confetti passing behind */
+h1,
+button {
+  background: rgb(255 255 255 / 0.75);
+}
+
+.answers {
+  display: flex;
+  gap: clamp(0.75rem, 4vw, 1.5rem);
+}
+
+button {
+  font-size: clamp(1rem, 4.5vw, 1.25rem);
+  padding: 0.75rem clamp(1rem, 4vw, 1.5rem);
+  white-space: nowrap;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.prompt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  transition:
+    opacity 1s,
+    visibility 1s;
+}
+
+.prompt.answered {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti span {
+  position: absolute;
+  top: -3rem;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(calc(100vh + 6rem)) rotate(360deg);
+  }
+}
+
+.fireworks {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.burst {
+  position: absolute;
+}
+
+.burst span {
+  position: absolute;
+  font-size: 1.75rem;
+  translate: -50% -50%;
+  animation: explode 1.5s ease-out both;
+}
+
+@keyframes explode {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.3);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(1);
+  }
+}
+
+.too-soon {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+  font-size: 100vmax;
+  line-height: 1;
+  animation: grow 4s ease-in both;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0.01);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confetti {
+    display: none;
+  }
+}
