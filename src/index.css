@@ -125,7 +125,8 @@ button {
   justify-content: center;
   overflow: hidden;
   pointer-events: none;
-  font-size: 100vmax;
+  /* vmin keeps the whole emoji inside the screen's shorter side */
+  font-size: 85vmin;
   line-height: 1;
   animation: grow 4s ease-in both;
 }
