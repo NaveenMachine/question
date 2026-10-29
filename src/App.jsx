@@ -7,7 +7,7 @@ const bouquets = Array.from({ length: 30 }, () => ({
   duration: 6 + Math.random() * 6,
   delay: -Math.random() * 12,
 }))
-
+// re build
 const fireworkEmojis = ['🥰', '🐶', '🚀', '🔥']
 const FIREWORKS_MS = 30000
 const PARTICLES_PER_BURST = 20
